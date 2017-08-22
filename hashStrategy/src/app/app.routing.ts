@@ -2,7 +2,9 @@ import { RouterModule } from '@angular/router';
 import { ArtistListComponent } from './artist/artist-list.component';
 import { ArtistDetailComponent } from './artist/artist-detail.component';
 import { AlbumListComponent } from './album/album-list.component';
+import {LoginFormComponent} from './login/login-form.component';
 import { AlbumDetailComponent } from './album/album-detail.component';
+import {LoggedInGuard} from './login/logged-in.guard';
 
 export const routing = RouterModule.forRoot([
   {
@@ -19,7 +21,12 @@ export const routing = RouterModule.forRoot([
   },
   {
     path: 'albums/:albumId',
-    component: AlbumDetailComponent
+    component: AlbumDetailComponent,
+    canActivate: [LoggedInGuard]
+  },
+  {
+    path: 'login',
+    component: LoginFormComponent
   },
   {
     path: '',

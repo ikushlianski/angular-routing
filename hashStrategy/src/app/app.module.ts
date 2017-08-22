@@ -10,16 +10,19 @@ import { ArtistListComponent } from './artist/artist-list.component';
 import { ArtistDetailComponent } from './artist/artist-detail.component';
 import { AlbumListComponent } from './album/album-list.component';
 import { AlbumDetailComponent } from './album/album-detail.component';
+import {LoginFormComponent} from './login/login-form.component';
+import {LoggedInGuard} from './login/logged-in.guard';
+import {LoginService} from './login/login.service';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, routing],
   declarations: [
     AppComponent,
     ArtistListComponent,
-    ArtistDetailComponent, AlbumListComponent, AlbumDetailComponent
+    ArtistDetailComponent, AlbumListComponent, AlbumDetailComponent, LoginFormComponent
   ],
   providers: [
-    ArtistService, AlbumService,
+    ArtistService, AlbumService, LoggedInGuard, LoginService,
     {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
